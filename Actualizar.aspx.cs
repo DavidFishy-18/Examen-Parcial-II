@@ -13,15 +13,23 @@ namespace Examen_Parcial_II
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Serpientes> s = new List<Serpientes>();
+            if (!IsPostBack)
+            {
+                List<Serpientes> s = new List<Serpientes>();
 
-            s = Leer();
+                s = Leer();
 
-            DropDownList1.DataSource = null;
-            DropDownList1.DataValueField = "NombreP";
-            DropDownList1.DataTextField = "NombreP";
-            DropDownList1.DataSource = s;
-            DropDownList1.DataBind();
+                DropDownList1.DataSource = null;
+                DropDownList1.DataValueField = "NombreP";
+                DropDownList1.DataTextField = "NombreP";
+                DropDownList1.DataSource = s;
+                DropDownList1.DataBind();
+
+                int a = DropDownList1.SelectedIndex;
+
+                TextBox1.Text = s[a].NombreP; TextBox2.Text = s[a].Especie; TextBox3.Text = s[a].TipoA;
+                TextBox4.Text = s[a].TiempoV; TextBox5.Text = s[a].Venenosa; TextBox6.Text = s[a].Longitud;
+            }
         }
 
         private List<Serpientes> Leer()
@@ -45,14 +53,17 @@ namespace Examen_Parcial_II
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                List<Serpientes> s = new List<Serpientes>(); s = Leer();
+            List<Serpientes> s = new List<Serpientes>(); s = Leer();
 
-                int a = DropDownList1.SelectedIndex;
+            int a = DropDownList1.SelectedIndex;
 
-                
-            }
+            TextBox1.Text = s[a].NombreP; TextBox2.Text = s[a].Especie; TextBox3.Text = s[a].TipoA;
+            TextBox4.Text = s[a].TiempoV; TextBox5.Text = s[a].Venenosa; TextBox6.Text = s[a].Longitud;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
