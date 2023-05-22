@@ -63,7 +63,15 @@ namespace Examen_Parcial_II
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            List<Serpientes> s = new List<Serpientes>(); s = Leer(); int a = 0; int b = s.Count;
 
+            for(int i = 0; i < b; i++) if(DropDownList1.SelectedValue.Equals(s[i].NombreP)) a = i;
+
+            s[a].NombreP = TextBox1.Text; s[a].Especie = TextBox2.Text; s[a].TipoA = TextBox3.Text;
+            s[a].TiempoV = TextBox4.Text; s[a].Venenosa = TextBox5.Text; s[a].Longitud = TextBox6.Text;
+
+            Grabar(s); TextBox1.Text = ""; TextBox2.Text = ""; TextBox3.Text = ""; TextBox4.Text = "";
+            TextBox5.Text = ""; TextBox6.Text = ""; Response.Write("<script>alert('Datos actualizados exitosamente')</script>");
         }
     }
 }
