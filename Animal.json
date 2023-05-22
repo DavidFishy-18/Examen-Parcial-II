@@ -6,13 +6,5 @@
     "Especie": "Culebra",
     "TipoA": "Carne",
     "TiempoV": "9 meses"
-  },
-  {
-    "Venenosa": "Si",
-    "Longitud": "4.65 metros",
-    "NombreP": "Lucas",
-    "Especie": "Culebra",
-    "TipoA": "Pollo",
-    "TiempoV": "7 meses"
   }
 ]
